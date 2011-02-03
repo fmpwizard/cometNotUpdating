@@ -7,6 +7,7 @@ import code.snippet.Param._
 import scala.xml.{NodeSeq, Text, Elem}
 
 import net.liftweb._
+import actor._
 import util._
 import common.Logger
 import http._
@@ -28,8 +29,10 @@ class TopMenu extends Logger {
   
 
   def addVersionToLinks ={
+    code.comet.BrowserDetailsServer ! showingVersion
     ClearClearable andThen
-    "a [href+]" #> Text("/" + showingVersion) 
+    "a [href+]" #> Text("/" + showingVersion)
+
   }
 
 

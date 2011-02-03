@@ -19,5 +19,9 @@ object BrowserDetailsServer extends  Logger with LiftActor with ListenerManager 
       //messages = s
       updateListeners()
     }
+    case s: String => {
+      messages= s
+      updateListeners()
+    }
   }
 }

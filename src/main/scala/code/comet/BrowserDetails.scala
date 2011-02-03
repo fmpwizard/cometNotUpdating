@@ -33,11 +33,13 @@ class BrowserDetails extends CometActor with Logger with CometListener {
     * Generate the Test Result view section
     */
 
-  val showingVersion= versionString
+  //val showingVersion= versionString
+  var showingVersion= ""
 
-  debug("Version number: %s".format(browserVersionString))
+  debug("Version number: %s".format(showingVersion))
 
   def render= {
+    debug("Version number 2: %s".format(showingVersion))
     val testResultControlRender= BrowserTests.getBrowserTestResultByBrowserName( showingVersion, "Control render" )
     val testResultGraphsRender= BrowserTests.getBrowserTestResultByBrowserName( showingVersion, "Graphs render" )
     val testResultCGWorks= BrowserTests.getBrowserTestResultByBrowserName( showingVersion, "CG Works" )
@@ -88,8 +90,8 @@ class BrowserDetails extends CometActor with Logger with CometListener {
 
   override def lowPriority : PartialFunction[Any,Unit] = {
     case v: String => {
-      //msgs = v
-      info("Updating BrowserTestResults")
+      showingVersion= v
+      info("Updating BrowserTestResults: %s".format(v))
       reRender()
     }
     case _ => {
