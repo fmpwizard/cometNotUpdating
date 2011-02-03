@@ -13,7 +13,6 @@ import http.SHtml._
 import http.js.JsCmds.{SetHtml, SetValueAndFocus}
 
 import _root_.java.util.Date
-import code.lib._
 import Helpers._
 
 class SideBar extends Logger {

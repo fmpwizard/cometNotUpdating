@@ -11,10 +11,8 @@ import net.liftweb.http.SHtml._
 import net.liftweb.http.js.JsCmd
 import _root_.net.liftweb.http.js.JE.JsRaw
 import _root_.net.liftweb.http.js.jquery.JqJsCmds._
-//import _root_.net.liftweb.mapper.{OrderBy, Descending, SelectableField}
 import _root_.net.liftweb.widgets.autocomplete.AutoComplete
 import _root_.java.util.Date
-import code.lib._
 import Helpers._
 
 class VersionAutoComplete extends Logger {
