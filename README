@@ -1,0 +1,20 @@
+
+git clone git://github.com/fmpwizard/cometNotUpdating.git
+cd cometNotUpdating
+sbt
+update
+jetty-run
+
+go to http://127.0.0.1:8080/browser-details/2.4.0.1081
+
+you will see a phrase
+
+Browser Matrix results for version: 2.4.0.1081
+
+then change the url to
+
+http://127.0.0.1:8080/browser-details/2.4.0.1083
+
+You will notice that the text did not change to show the new version number 2.4.0.1083
+
+
