@@ -19,12 +19,13 @@ import net.liftweb.http.js.JE.Str
 import Helpers._
 
 
-class BrowserDetails extends CometActor with Logger with CometListener {
+class BrowserDetails extends CometActor with Logger /*with CometListener*/ {
 
   override def defaultPrefix = Full("comet")
+  override def lifespan = Full(120 seconds) // time out the comet actor if it hasn't been on a page for 2 miniutes
   //Which object will get messages that this comet actor needs to
   //process
-  def registerWith = BrowserDetailsServer
+  //def registerWith = BrowserDetailsServer
 
   //private var msgs: Vector[String] = Vector()
 

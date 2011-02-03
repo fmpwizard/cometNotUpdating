@@ -5,7 +5,7 @@ class LiftProject(info: ProjectInfo) extends DefaultWebProject(info) {
 
   //override def scanDirectories = Nil
 
-  val liftVersion = "2.3-SNAPSHOT"
+  val liftVersion = "2.3-M1"
   
 
   val scalaToolsSnapshots = "Scala-Tools Maven2 Snapshots Repository" at "http://scala-tools.org/repo-snapshots" 
@@ -23,10 +23,10 @@ class LiftProject(info: ProjectInfo) extends DefaultWebProject(info) {
     //"junit" % "junit" % "4.5" % "test->default",
     //"org.mockito" % "mockito-core" % "1.8.5" % "test->default",
     //"org.scala-tools.testing" %% "specs" % "1.6.6" % "test->default",
-    //"mysql" % "mysql-connector-java" % "5.1.14" % "compile->default",
+    "mysql" % "mysql-connector-java" % "5.1.14" % "compile->default",
     "ch.qos.logback" % "logback-classic" % "0.9.26" % "compile->default",
-    "commons-dbcp" % "commons-dbcp" % "1.4" % "compile->default",
-    "com.h2database" % "h2" % "1.2.138"
+    "commons-dbcp" % "commons-dbcp" % "1.4" % "compile->default"
+    //"com.h2database" % "h2" % "1.2.138"
   ) ++ super.libraryDependencies
 
    //System.setProperty("log4j.configuration", "file:/resources/

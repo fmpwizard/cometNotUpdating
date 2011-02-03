@@ -1,7 +1,6 @@
 package code
 package snippet
 
-//import code.model.{AutomatedTests}
 import code.snippet.Param._
 
 import scala.xml.{NodeSeq, Text, Elem}
@@ -29,7 +28,7 @@ class TopMenu extends Logger {
   
 
   def addVersionToLinks ={
-    code.comet.BrowserDetailsServer ! showingVersion
+    //code.comet.BrowserDetailsServer ! showingVersion
     ClearClearable andThen
     "a [href+]" #> Text("/" + showingVersion)
 
