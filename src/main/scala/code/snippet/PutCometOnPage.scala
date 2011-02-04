@@ -15,12 +15,14 @@ import code.snippet.Param._
 
 object PutCometOnPage {
   def render(xhtml: NodeSeq): NodeSeq = {
-    val id = Helpers.nextFuncName
     val showingVersion= versionString
+    //val id = Helpers.nextFuncName
+    val id = "browserdetails" + showingVersion
+
     //val params = showingVersion // get params from request
     for (sess <- S.session) sess.sendCometActorMessage(
-      "BrowserDetails", Full(id), showingVersion/*QueryParams(params)*/
-    ) // Note QueryParams is your own case class
+      "BrowserDetails", Full(id), showingVersion
+    ) // Note showingVersion is the version number to display
     <lift:comet type="BrowserDetails" name={id}>{xhtml}</lift:comet>
   }
 }
