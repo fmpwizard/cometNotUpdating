@@ -18,8 +18,6 @@ object PutCometOnPage {
     val showingVersion= versionString
     //val id = Helpers.nextFuncName
     val id = "browserdetails" + showingVersion
-
-    //val params = showingVersion // get params from request
     for (sess <- S.session) sess.sendCometActorMessage(
       "BrowserDetails", Full(id), showingVersion
     ) // Note showingVersion is the version number to display

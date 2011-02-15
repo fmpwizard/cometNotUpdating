@@ -56,14 +56,7 @@ object RestHelperAPI extends RestHelper with Logger {
             info("It passed: %s".format(browser))
             BrowserTests.updateOrAddBrowserTestResult(parsedBrowserTestResult)
             //Tell the BrowserDetails comet actor to update the UI
-            val cometId= "browserdetails" + Some(srvmgrVersion).getOrElse("N/A")
-            for (sess <- S.session) {
-              sess.sendCometActorMessage(
-                "BrowserDetails", Full(cometId), Some(srvmgrVersion).getOrElse("N/A")
-              )
-              info("We found these actors: %s".format(sess.findComet("BrowserDetails")))
-            }
-            //code.comet.BrowserDetailsServer ! Ping
+            code.comet.BrowserDetailsServer ! Some(srvmgrVersion).getOrElse("")
             NoContentResponse()
         }
         // Else. log an error and return a erro4 400 with a message
